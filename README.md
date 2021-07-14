@@ -1,0 +1,1 @@
+Objective: To learn about Javascript array methods via beginner desktop game projects.
