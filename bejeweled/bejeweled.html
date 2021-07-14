@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bejeweled</title>
+    <link rel="stylesheet" type="text/css" href="../index.css">
+</head>
+<body>
+    <div class="instruction" id='instruction'>
+        <div class="instruction-text" style="background: #0e62b5!important; border: none;">Use your mouse to click on two jewels next to each other and swap them. When you get three or more jewels in the same row, you will be awarded with points accordingly. Your time will increase based on the amount of points you accumulate. Click anywhere to begin.</div>
+    </div>
+    <canvas id="bejeweled" width="400" height="400"/>
+    <script>
+        document.onclick = function (e) {
+            document.getElementById("instruction").style.display = "none";
+        }
+    </script>
+    <script type="text/javascript" src="bejeweled.js"></script>
+</body>
+</html>
