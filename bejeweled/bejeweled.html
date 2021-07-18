@@ -8,11 +8,17 @@
 </head>
 <body>
     <div class="instruction" id='instruction'>
-        <div class="instruction-text" style="background: #0e62b5!important; border: none;">Use your mouse to click on two jewels next to each other and swap them. When you get three or more jewels in the same row, you will be awarded with points accordingly. Your time will increase based on the amount of points you accumulate. Click anywhere to begin.</div>
+        <div class="instruction-text" style="background: #0e62b5!important; border: none;">Use your mouse to click on two jewels next to each other and swap them. When you get three or more jewels in the same row or column, you will be awarded with points accordingly. You have <b>1 minute</b> to get as many points as possible. Click anywhere to begin.</div>
     </div>
-    <canvas id="bejeweled" width="400" height="400"/>
+    <canvas id="bejeweled" width="400" height="400"></canvas>
+    <div class="grid" id="grid"></div>
+    <div class="text" id="text">
+        <div class="score-text" id="score-text">Score: 0</div>
+        <div class="countdown-text" id="countdown-text">Countdown: 1min</div>
+    </div>
+    <canvas id="game-over-text" class="game-over-text" width="400" height="400"></canvas>
     <script>
-        document.onclick = function (e) {
+        document.onmousedown = function (e) {
             document.getElementById("instruction").style.display = "none";
         }
     </script>

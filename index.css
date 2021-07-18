@@ -21,7 +21,7 @@ h1 {
 
 a {
     display: block;
-    z-index: 2;
+    z-index: 3;
     width: 60%;
     font-size: 20px;
     font-weight: 700;
@@ -71,7 +71,7 @@ a:active {
     margin: auto;
     width: 400px;
     height: 400px;
-    z-index: 2;
+    z-index: 3;
     display: block;
     background: transparent;
 }
@@ -98,4 +98,64 @@ canvas{
     margin: auto;
     z-index: 1;
     display: block;
+}
+
+.grid {
+    height: 400px;
+    width: 400px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    background: transparent;
+    z-index: 2;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.grid div {
+    height: 40px;
+    width: 40px;
+}
+
+.text {
+    height: 400px;
+    width: 400px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    background: transparent;
+}
+
+.score-text {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+    z-index: 4;
+    position: absolute;
+    height: auto;
+    width: auto;
+    top: 3px;
+    right: 18px;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.countdown-text {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+    z-index: 4;
+    position: absolute;
+    height: auto;
+    width: auto;
+    top: 3px;
+    left: 12px;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }

@@ -1,7 +1,5 @@
 /** @type {HTMLCanvasElement} */
 
-// attr: https://www.youtube.com/watch?v=7Azlj0f9vas&ab_channel=CodingWithAdam
-
 const canvas = document.getElementById("snake");
 const ctx = canvas.getContext('2d');
 
