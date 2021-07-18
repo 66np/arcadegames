@@ -19,8 +19,8 @@ The source code from the following tutorials helped me build specific projects i
 # Progress
 
 Please refer to the following:
-- Snake: Completed
-- Bejeweled: In progress
+- Snake: Complete
+- Bejeweled: Complete
 - Tetris: Not started
 - Space: Not started
 
