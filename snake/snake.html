@@ -8,11 +8,11 @@
 </head>
 <body>
     <div class="instruction" id='instruction'>
-        <div class="instruction-text">Use the arrow keys to move your snake (red) around. The objective is to collect as much food (yellow) to get the highest score possible. Remember NOT to collide against the walls or your own body. You may press any key to begin.</div>
+        <div class="instruction-text">Use the arrow keys to move your snake (red) around. The objective is to collect as much food (yellow) to get the highest score possible. Remember NOT to collide against the walls or your own body. Press any key to begin.</div>
     </div>
     <canvas id="snake" width="400" height="400"/>
     <script>
-        document.onkeyup = function (e) {
+        document.onkeydown = function (e) {
             document.getElementById("instruction").style.display = "none";
         }
     </script>

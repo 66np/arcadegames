@@ -12,7 +12,7 @@ The source code from the following tutorials helped me build specific projects i
 
 ## Lessons Learned
 - Order of functions matter in JS file
-- Canvas is preferable for static and automovement, while Div works better with event handlers (i.e. dragstart)
+- Canvas is preferable for static and auto movement, while Div works better with event handlers (i.e. dragstart)
 - DOMContentLoaded is used to run event once HTML doc is loaded, but without waiting for stylesheets or images (https://developer.mozilla.org/en-US/docs/Web/API/Window/DOMContentLoaded_event)
 - You can invoke a function once (i.e. to avoid tampering with a countdown) by using 'once' method in the event listener
 
@@ -21,7 +21,7 @@ The source code from the following tutorials helped me build specific projects i
 Please refer to the following:
 - Snake: Complete
 - Bejeweled: Complete
-- Tetris: Not started
+- Tetris: In progress
 - Space: Not started
 
 This project will be updated on an ongoing basis.

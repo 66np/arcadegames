@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tetris</title>
+    <link rel="stylesheet" type="text/css" href="../index.css">
+</head>
+<body>
+    <div class="instruction" id='instruction'>
+        <div class="instruction-text" style="background: #12a82b!important; border: none;">Use your arrow keys to shift the horizontal position of the tetramino as it comes down. Once a row is filled, the cells will shift downward rendering the row clear as it rewards you with points. You have <b>1:30min</b> to get as many points as possible. Press any key to begin.</div>
+    </div>
+    <canvas id="tetris" width="400" height="400"></canvas>
+
+    <div class="game-tetris">
+        <div class="grid-tetris" id="grid-tetris">
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div class="tetris-block" id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+            <div id="grid-block"></div>
+        </div>
+    </div>
+
+    
+    <!-- <div class="text" id="text">
+        <div class="score-text" id="score-text">Score: 0</div>
+        <div class="countdown-text" id="countdown-text">Countdown: 1min</div>
+    </div>
+    <canvas id="game-over-text" class="game-over-text" width="400" height="400"></canvas> -->
+    <script>
+        document.onkeydown = function (e) {
+            document.getElementById("instruction").style.display = "none";
+        }
+    </script>
+    <script type="text/javascript" src="tetris.js"></script>
+</body>
+</html>
