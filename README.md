@@ -29,7 +29,7 @@ The source code from the following tutorials helped me build specific projects i
 Please refer to the following:
 - Snake: Complete
 - Bejeweled: Complete
-- Tetris: In progress
+- Tetris: Complete
 - Space: Not started
 
 This project will be updated on an ongoing basis.
