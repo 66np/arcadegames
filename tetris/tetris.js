@@ -296,7 +296,9 @@ const player = {
     score: 0,
 };
 
-document.addEventListener("keydown", event => {
+document.addEventListener("keydown", arrowKeys, true);
+
+function arrowKeys(event) {
     if (event.key === "ArrowLeft") { // keyCode = 37
         playerMove(-1);
     } else if (event.key === "ArrowRight") { // keyCode = 39
@@ -306,7 +308,7 @@ document.addEventListener("keydown", event => {
     } else if (event.key === "ArrowUp") { // keyCode = 38
         playerRotate(1);
     }
-})
+}
 
 document.onkeyup = function() {
     update();
@@ -318,6 +320,7 @@ function isGameOver() {
             clearInterval(timeLeft = 0);
             drawCountdown.innerHTML = `Countdown: 0s`
             animation = false;
+            document.removeEventListener("keydown", arrowKeys, true);
             end.fillStyle = "#000";
             end.font = "50px bold Verdana";
             end.fillText("Game Over", canvas.width / 4.8, canvas.height / 2);
