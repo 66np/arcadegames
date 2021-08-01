@@ -16,6 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const drawCountdown = document.getElementById("countdown-text");
     let timeLeft = 59;
 
+    const gameOverSound = new Audio("gameOver.wav");
+    const pointsThreeAndFourSound = new Audio("pointsThreeAndFour.wav");
+    const pointsFiveSound = new Audio("pointsFive.wav");
+
     const jewelColors = [
         'red',
         'yellow',
@@ -157,6 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (rowOfThree.every(index => squares[index].style.backgroundColor === decidedColor && !isBlank)) {
                 score += 3;
+                pointsThreeAndFourSound.play();
                 drawScore.innerHTML = `Score: ${score}`;
                 rowOfThree.forEach(index => {
                     squares[index].style.backgroundColor = '';
@@ -176,6 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (columnOfThree.every(index => squares[index].style.backgroundColor === decidedColor && !isBlank)) {
                 score += 3;
+                pointsThreeAndFourSound.play();
                 drawScore.innerHTML = `Score: ${score}`;
                 columnOfThree.forEach(index => {
                     squares[index].style.backgroundColor = '';
@@ -199,6 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (rowOfFour.every(index => squares[index].style.backgroundColor === decidedColor && !isBlank)) {
                 score += 4;
+                pointsThreeAndFourSound.play();
                 timeLeft += 1;
                 drawScore.innerHTML = `Score: ${score}`;
                 rowOfFour.forEach(index => {
@@ -219,6 +226,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (columnOfFour.every(index => squares[index].style.backgroundColor === decidedColor && !isBlank)) {
                 score += 4;
+                pointsThreeAndFourSound.play();
                 timeLeft += 1;
                 drawScore.innerHTML = `Score: ${score}`;
                 columnOfFour.forEach(index => {
@@ -243,6 +251,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (rowOfFive.every(index => squares[index].style.backgroundColor === decidedColor && !isBlank)) {
                 score += 5;
+                pointsFiveSound.play();
                 timeLeft += 2;
                 drawScore.innerHTML = `Score: ${score}`;
                 rowOfFive.forEach(index => {
@@ -263,6 +272,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (columnOfFive.every(index => squares[index].style.backgroundColor === decidedColor && !isBlank)) {
                 score += 5;
+                pointsFiveSound.play();
                 timeLeft += 2;
                 drawScore.innerHTML = `Score: ${score}`;
                 columnOfFive.forEach(index => {
@@ -285,10 +295,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 100);
     
 
-    function isGameOver() {
+    const isGameOver =
         setInterval(function() {
             if (timeLeft <= 0) {
-                clearInterval(timeLeft = 0);
+                clearInterval(isGameOver);
+                gameOverSound.play();
                 grid.style.display = "none";
                 end.fillStyle = "#fff";
                 end.font = "50px bold Verdana";
@@ -297,7 +308,7 @@ document.addEventListener('DOMContentLoaded', () => {
             drawCountdown.innerHTML = `Countdown: ${timeLeft}s`
             timeLeft -= 1;
         }, 1000)
-    }
+    
 
     document.addEventListener('mousedown', function(event) {
         isGameOver();

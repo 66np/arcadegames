@@ -28,6 +28,7 @@ let velocity_y = 0;
 let score = 0;
 
 const gulpSound = new Audio("gulp.mp3");
+const gameOverSound = new Audio("gameOver.wav");
 
 // screen update loop, 1000ms/speed
 function drawScreen() {
@@ -74,6 +75,7 @@ function isGameOver() {
     }
     
     if (gameOver) {
+        gameOverSound.play();
         ctx.fillStyle = "#00a10b";
         ctx.font = "50px bold Verdana";
         ctx.fillText("Game Over", canvas.width / 4.8, canvas.height / 2);

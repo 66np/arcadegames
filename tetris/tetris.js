@@ -19,6 +19,8 @@ const drawScore = document.getElementById("score-text");
 const drawCountdown = document.getElementById("countdown-text");
 let timeLeft = 90;
 
+const gameOverSound = new Audio("gameOver.wav");
+
 class drawScreen{
     constructor(clr, xPos, yPos, boxWidth, boxHeight) {
         this.clr = clr;
@@ -314,10 +316,11 @@ document.onkeyup = function() {
     update();
 }
 
-function isGameOver() {
+const isGameOver =
     setInterval(function() {
         if (timeLeft <= 0) {
-            clearInterval(timeLeft = 0);
+            clearInterval(isGameOver);
+            gameOverSound.play();
             drawCountdown.innerHTML = `Countdown: 0s`
             animation = false;
             document.removeEventListener("keydown", arrowKeys, true);
@@ -338,7 +341,6 @@ function isGameOver() {
             timeLeft -= 1;
         }
     }, 1000)
-}
 
 document.addEventListener('keyup', function(event) {
     isGameOver();
