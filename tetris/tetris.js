@@ -17,9 +17,10 @@ let score = 0;
 const drawScore = document.getElementById("score-text");
 
 const drawCountdown = document.getElementById("countdown-text");
-let timeLeft = 109;
+let timeLeft = 119;
 
 const gameOverSound = new Audio("gameOver.wav");
+const sweepSound = new Audio("sweep.wav");
 
 class drawScreen{
     constructor(clr, xPos, yPos, boxWidth, boxHeight) {
@@ -86,6 +87,7 @@ function arenaSweep() {
         timeLeft+=5;
 
         score += 10;
+        sweepSound.play();
         drawScore.innerHTML = `Score: ${score}`;
     }
 }

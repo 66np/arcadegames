@@ -10,9 +10,12 @@ The source code from the following tutorials helped me build specific projects i
 - Bejeweled: https://www.youtube.com/watch?v=XD5sZWxwJUk&t=412s&ab_channel=CodewithAniaKub%C3%B3w
 - Bejeweled Countdown: https://www.youtube.com/watch?v=vSV_Ml2_A88&ab_channel=CodewithAniaKub%C3%B3w
 - Tetris: https://www.youtube.com/watch?v=H2aW5V46khA&ab_channel=MethMethMethod
-- Arcade Retro Game Over (Snake): https://mixkit.co/free-sound-effects/game-over/ (under "Mixkit - Free License")
+- Arcade retro game over (Snake): https://mixkit.co/free-sound-effects/game-over/ (under "Mixkit - Free License")
 - Musical game over (Bejeweled): https://mixkit.co/free-sound-effects/game-over/ (under "Mixkit - Free License")
-- Failure Arcade Alert Notification (Tetris): https://mixkit.co/free-sound-effects/game-over/ (under "Mixkit - Free License")
+- Melodic gold price (Bejeweled): https://mixkit.co/free-sound-effects/game-over/ (under "Mixkit - Free License")
+- Game treasure coin (Bejeweled): https://mixkit.co/free-sound-effects/game-over/ (under "Mixkit - Free License")
+- Failure arcade alert notification (Tetris): https://mixkit.co/free-sound-effects/game-over/ (under "Mixkit - Free License")
+- Achievement bell (Tetris): https://mixkit.co/free-sound-effects/game-over/ (under "Mixkit - Free License")
 
 ## Lessons Learned
 - Order of functions matter in JS file
