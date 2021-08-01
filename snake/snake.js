@@ -45,6 +45,7 @@ function drawScreen() {
 
     drawScore();
 
+    // setTimeout offers better control in speed than requestAnimationFrame
     setTimeout(drawScreen, 1000/speed);
 }
 

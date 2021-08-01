@@ -17,7 +17,7 @@ The source code from the following tutorials helped me build specific projects i
 - DOMContentLoaded is used to run event once HTML doc is loaded, but without waiting for stylesheets or images (https://developer.mozilla.org/en-US/docs/Web/API/Window/DOMContentLoaded_event)
 - You can invoke a function once (i.e. to avoid tampering with a countdown) by using 'once' method in the event listener
 - Canvas scaling method, although convenient, often interferes with re-rendering of frames
-- requestAnimationFrame provides better quality animations over setInterval method
+- requestAnimationFrame provides better quality animations (less flickers and shears), whereas setInterval and setTimeout methods offer better control of speed
 - unshift array method adds items at the beginning of the array and returns the array's new length
 - debugger stops execution of JavaScript function and called function being debugged
 

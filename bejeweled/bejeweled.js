@@ -56,6 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
             square.style.borderRadius = "50%";
             square.style.padding = "10px 10px";
             square.style.boxSizing = "border-box";
+            square.style.border = "2px solid #fff";
             grid.append(square);
             squares.push(square);
         }
@@ -198,6 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (rowOfFour.every(index => squares[index].style.backgroundColor === decidedColor && !isBlank)) {
                 score += 4;
+                timeLeft += 1;
                 drawScore.innerHTML = `Score: ${score}`;
                 rowOfFour.forEach(index => {
                     squares[index].style.backgroundColor = '';
@@ -217,6 +219,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (columnOfFour.every(index => squares[index].style.backgroundColor === decidedColor && !isBlank)) {
                 score += 4;
+                timeLeft += 1;
                 drawScore.innerHTML = `Score: ${score}`;
                 columnOfFour.forEach(index => {
                     squares[index].style.backgroundColor = '';
@@ -240,6 +243,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (rowOfFive.every(index => squares[index].style.backgroundColor === decidedColor && !isBlank)) {
                 score += 5;
+                timeLeft += 2;
                 drawScore.innerHTML = `Score: ${score}`;
                 rowOfFive.forEach(index => {
                     squares[index].style.backgroundColor = '';
@@ -259,6 +263,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (columnOfFive.every(index => squares[index].style.backgroundColor === decidedColor && !isBlank)) {
                 score += 5;
+                timeLeft += 2;
                 drawScore.innerHTML = `Score: ${score}`;
                 columnOfFive.forEach(index => {
                     squares[index].style.backgroundColor = '';

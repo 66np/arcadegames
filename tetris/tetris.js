@@ -9,6 +9,16 @@ canvas.height = 400;
 // Scale of grid and tetris matrix
 const scaleFactor = 16;
 
+// Adding scoreboard and timer elements
+const drawGameOver = document.getElementById("game-over-text");
+const end = drawGameOver.getContext('2d');
+
+let score = 0;
+const drawScore = document.getElementById("score-text");
+
+const drawCountdown = document.getElementById("countdown-text");
+let timeLeft = 90;
+
 class drawScreen{
     constructor(clr, xPos, yPos, boxWidth, boxHeight) {
         this.clr = clr;
@@ -71,6 +81,10 @@ function arenaSweep() {
         const row = arena.splice(y, 1)[0].fill(0);
         arena.unshift(row);
         ++y;
+        timeLeft+=5;
+
+        score += 10;
+        drawScore.innerHTML = `Score: ${score}`;
     }
 }
 
@@ -242,6 +256,8 @@ let dropInterval = 1000;
 
 let lastTime = 0;
 
+let animation = true;
+
 function update(time = 0) {
     const deltaTime = time - lastTime;
     lastTime = time;
@@ -252,7 +268,12 @@ function update(time = 0) {
     }
 
     draw();
-    requestAnimationFrame(update);
+
+    if (animation) {
+        requestAnimationFrame(update);
+    } else {
+        cancelAnimationFrame(update);
+    }
 };
 
 const colors = [
@@ -267,10 +288,12 @@ const colors = [
 ]
 
 const arena = createMatrix(14, 22);
+const pieces = "ILJOTSZ";
 
 const player = {
     pos: {x: 1, y: 2},
-    matrix: createPiece("T"),
+    matrix: createPiece(pieces[pieces.length * Math.random() | 0]),
+    score: 0,
 };
 
 document.addEventListener("keydown", event => {
@@ -288,3 +311,32 @@ document.addEventListener("keydown", event => {
 document.onkeyup = function() {
     update();
 }
+
+function isGameOver() {
+    setInterval(function() {
+        if (timeLeft <= 0) {
+            clearInterval(timeLeft = 0);
+            drawCountdown.innerHTML = `Countdown: 0s`
+            animation = false;
+            end.fillStyle = "#000";
+            end.font = "50px bold Verdana";
+            end.fillText("Game Over", canvas.width / 4.8, canvas.height / 2);
+        } else if (timeLeft >= 70){
+            drawCountdown.innerHTML = `Countdown: 1:${timeLeft-60}min`
+            timeLeft -= 1;
+        } else if (timeLeft > 60 && timeLeft < 70) {
+            drawCountdown.innerHTML = `Countdown: 1:0${timeLeft-60}min`
+            timeLeft -= 1;
+        } else if (timeLeft === 60) {
+            drawCountdown.innerHTML = `Countdown: 1min`
+            timeLeft -= 1;
+        } else if (timeLeft <= 59 && timeLeft > 0) {
+            drawCountdown.innerHTML = `Countdown: ${timeLeft}s`
+            timeLeft -= 1;
+        }
+    }, 1000)
+}
+
+document.addEventListener('keyup', function(event) {
+    isGameOver();
+}, {once: true});
