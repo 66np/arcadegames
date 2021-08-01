@@ -98,6 +98,7 @@ canvas{
     margin: auto;
     z-index: 1;
     display: block;
+    background: transparent;
 }
 
 .grid {
@@ -158,36 +159,4 @@ canvas{
     top: 3px;
     left: 12px;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-}
-
-#grid-block {
-    background: transparent;
-    height: 16px;
-    width: 16px;
-    vertical-align: top;
-}
-
-.grid-tetris {
-    border: 2px solid #000;
-    background: transparent;
-    /* 13x20 grid*/
-    height: 320px;
-    width: 208px;
-    display: flex;
-    flex-wrap: wrap;
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    right: 135px;
-    margin: auto;
-    z-index: 2;
-}
-
-.tetris-block {
-    background: blue!important;
-}
-
-.tetris-block2 {
-    background: purple!important;
 }
