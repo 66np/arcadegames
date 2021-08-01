@@ -17,7 +17,7 @@ let score = 0;
 const drawScore = document.getElementById("score-text");
 
 const drawCountdown = document.getElementById("countdown-text");
-let timeLeft = 90;
+let timeLeft = 109;
 
 const gameOverSound = new Audio("gameOver.wav");
 

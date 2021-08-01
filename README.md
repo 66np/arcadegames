@@ -30,6 +30,6 @@ Please refer to the following:
 - Snake: Complete
 - Bejeweled: Complete
 - Tetris: Complete
-- Space: Not started
+- Space: In progress
 
 This project will be updated on an ongoing basis.
