@@ -134,22 +134,22 @@ document.body.addEventListener('keydown', keyDown);
 
 function keyDown (event) {
     // order: up, down, left, right
-    if (event.keyCode == 38) {
+    if (event.key === "ArrowUp") {
         if (velocity_y == 1)
             return;
         velocity_y = -1;
         velocity_x = 0;
-    } else if (event.keyCode == 40) {
+    } else if (event.key === "ArrowDown") {
         if (velocity_y == -1)
             return;
         velocity_y = 1;
         velocity_x = 0;
-    } else if (event.keyCode == 37) {
+    } else if (event.key === "ArrowLeft") {
         if (velocity_x == -1)
             return;
         velocity_y = 0;
         velocity_x = -1;
-    } else if (event.keyCode = 39) {
+    } else if (event.key === "ArrowRight") {
         if (velocity_x == 1)
             return;
         velocity_y = 0;
