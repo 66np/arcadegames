@@ -29,4 +29,4 @@ The source code from the following tutorials helped me build specific projects i
 
 # Progress
 
-This project s completed.
+This project is completed.
