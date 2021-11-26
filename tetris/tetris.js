@@ -297,7 +297,6 @@ const pieces = "ILJOTSZ";
 const player = {
     pos: {x: 1, y: 2},
     matrix: createPiece(pieces[pieces.length * Math.random() | 0]),
-    score: 0,
 };
 
 document.addEventListener("keydown", arrowKeys, true);

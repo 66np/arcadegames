@@ -6,7 +6,7 @@ const ctx = canvas.getContext("2d");
 canvas.width = 400;
 canvas.height = 400;
 
-const scaleFactor = 10;
+const scaleFactor = 5;
 
 class drawScreen{
     constructor(clr, xPos, yPos, boxWidth, boxHeight) {
@@ -54,6 +54,10 @@ function addedCanvasValuesToDrawScreen() {
 
 addedCanvasValuesToDrawScreen();
 
+function clearScreen() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+
 function firstNonZeroInArray(arr) {
     for (let i = 0; i < arr.length; i++) {
         if (arr[i] === 0) {
@@ -74,7 +78,9 @@ function lastNonZeroInArray(arr) {
     }
 }
 
-function drawMatrix(matrix, offset) {
+
+// For player's unique shape
+function drawMatrixPlayer(matrix, offset) {
     matrix.forEach((row, y) => {
         row.forEach((value, x) => {
             if (value !== 0 && (row.every(num => num === row[0]) || (x === lastNonZeroInArray(row) && x !== firstNonZeroInArray(row)))) {
@@ -88,6 +94,20 @@ function drawMatrix(matrix, offset) {
     });
 }
 
+const scaleFactorOpponent = 7;
+
+// General reusable function
+function drawMatrixOpponents(matrix, offset) {
+    matrix.forEach((row, y) => {
+        row.forEach((value, x) => {
+            if (value !== 0) {
+                let matrixBlock = new drawScreen('hotpink', (x + offset.x)*scaleFactorOpponent, (y + offset.y)*scaleFactorOpponent, (1)*scaleFactorOpponent, (1)*scaleFactorOpponent);
+                matrixBlock.draw(ctx);
+            }
+        });
+    });
+}
+
 const player = {
     matrix: 
     [
@@ -95,9 +115,35 @@ const player = {
         [0, 0, 1, 1, 0],
         [1, 1, 1, 1, 1]
     ],
-    pos: {x: 1, y: 36}, 
-    score: 0,
+    pos: {x: 7, y: 74},
 };
+
+const opponents = {
+    matrix: 
+    [
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    ],
+    pos: {x: 1, y: 1},
+    score: 0,
+}
 
 function createMatrix(w, h) {
     const matrix = [];
@@ -111,21 +157,53 @@ function createMatrix(w, h) {
 
 const arena = createMatrix(20, 20);
 
+setInterval(function() {
+    if (opponents.pos.x >= 1) {
+        opponents.pos.x++;
+    } else if (opponents.pos.x <= 10) {
+        opponents.pos.x--;
+    }
+     clearScreen();
+
+     addedCanvasValuesToDrawScreen();
+
+    drawMatrixPlayer(arena, {x: 0, y: 0});
+    drawMatrixPlayer(player.matrix, player.pos);
+
+    drawMatrixOpponents(arena, {x: 0, y: 0});
+    drawMatrixOpponents(opponents.matrix, opponents.pos);
+}, 200);
+
 function draw() {
-    drawMatrix(arena, {x: 0, y: 0});
-    drawMatrix(player.matrix, player.pos);
+    // clearScreen();
+
+    // addedCanvasValuesToDrawScreen();
+
+    drawMatrixPlayer(arena, {x: 0, y: 0});
+    drawMatrixPlayer(player.matrix, player.pos);
+
+    // opponents.pos.x++;
+    // drawMatrixOpponents(opponents.matrix, opponents.pos);
 }
 
-document.addEventListener("keydown", playerControls);
+// draw();
+
+document.addEventListener("keydown", playerControls, true);
 
 function playerControls(event) {
     if (event.key === "ArrowLeft") {
-        player.pos.x++;
+        player.pos.x-=2;
+        if (player.pos.x <= 1) {
+            player.pos.x = 1;
+        }
     } else if (event.key === "ArrowRight") {
-        player.pos.x--;
-    } else if (event.key = "Spacebar") {
-        
-    }
+        player.pos.x+=2;
+        if (player.pos.x >= 74) {
+            player.pos.x = 74;
+        }
+    } 
+
+    draw();
 }
 
 draw();

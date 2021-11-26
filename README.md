@@ -1,6 +1,6 @@
 ## Objective
 
-To learn about Javascript array methods via beginner desktop game projects.
+To learn about Javascript array methods via beginner desktop game projects. Please note these games are only playable on desktop.
 
 ## Attributions
 
@@ -29,10 +29,4 @@ The source code from the following tutorials helped me build specific projects i
 
 # Progress
 
-Please refer to the following:
-- Snake: Complete
-- Bejeweled: Complete
-- Tetris: Complete
-- Space: In progress
-
-This project will be updated on an ongoing basis.
+This project s completed.
